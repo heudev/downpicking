@@ -1,0 +1,629 @@
+{% extends "theme.html" %}
+{% block head %}
+<link rel="stylesheet" href="/css/style.css">
+<script type="module" src="/js/notes.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock head %}
+
+{% block body %}
+<div class="items p-sm-1 pt-sm-4 p-md-1 pt-md-4 p-lg-2 pt-lg-4 p-xl-5">
+    <!-- Button trigger modal -->
+    <div class="d-flex justify-content-between">
+        <div>
+            <button type="button" class="btn btn-sm btn-outline-light" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">
+                Custom Color
+            </button>
+            <br>
+            <input type="range" min="900" max="" step="1" value="" id="myRange">
+        </div>
+        <div>
+            <br>
+            <span>String:</span>
+            <button onclick="removestring()" class="btn btn-sm btn-danger">
+                <i class="fas fa-minus-circle"></i>
+            </button>
+            <button onclick="addstring()" class="btn btn-sm btn-primary">
+                <i class="fas fa-plus-circle"></i>
+            </button>
+        </div>
+    </div>
+    <div id="table" class="bg-gradient table-responsive border border-bottom-0 border-white mt-1 p-1 rounded mx-auto">
+        <table class="table table-bordered mt-1 text-center">
+            <thead class="bg-dark text-warning">
+                <th style="width: 100px; transform: none" colspan="2" class="bg-dark text-warning">
+                    <i class="bi bi-music-note-list"></i>
+                </th>
+                <th>0</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+            </thead>
+            <tbody class="bg-secondary">
+                <tr>
+                    <td>
+                        <div class="btn-group" style="margin: -20px; margin-top: -25px;" role="group">
+                            <button id="s1l" type="button" class="btn btn-sm btn-danger">
+                                <i class="fas fa-caret-left"></i>
+                            </button>
+                            <button id="s1r" type="button" class="btn btn-sm btn-primary">
+                                <i class="fas fa-caret-right"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td style="width: 8vh; transform: none" class="bg-dark text-warning">1</td>
+                    <td class="click" id="1/0"></td>
+                    <td class="click" id="1/1"></td>
+                    <td class="click" id="1/2"></td>
+                    <td class="click" id="1/3"></td>
+                    <td class="click" id="1/4"></td>
+                    <td class="click" id="1/5"></td>
+                    <td class="click" id="1/6"></td>
+                    <td class="click" id="1/7"></td>
+                    <td class="click" id="1/8"></td>
+                    <td class="click" id="1/9"></td>
+                    <td class="click" id="1/10"></td>
+                    <td class="click" id="1/11"></td>
+                    <td class="click" id="1/12"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="btn-group" style="margin: -20px; margin-top: -25px;" role="group">
+                            <button id="s2l" type="button" class="btn btn-sm btn-danger">
+                                <i class="fas fa-caret-left"></i>
+                            </button>
+                            <button id="s2r" type="button" class="btn btn-sm btn-primary">
+                                <i class="fas fa-caret-right"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td style="width: 8vh; transform: none" class="bg-dark text-warning">2</td>
+                    <td class="click" id="2/0"></td>
+                    <td class="click" id="2/1"></td>
+                    <td class="click" id="2/2"></td>
+                    <td class="click" id="2/3"></td>
+                    <td class="click" id="2/4"></td>
+                    <td class="click" id="2/5"></td>
+                    <td class="click" id="2/6"></td>
+                    <td class="click" id="2/7"></td>
+                    <td class="click" id="2/8"></td>
+                    <td class="click" id="2/9"></td>
+                    <td class="click" id="2/10"></td>
+                    <td class="click" id="2/11"></td>
+                    <td class="click" id="2/12"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="btn-group" style="margin: -20px; margin-top: -25px;" role="group">
+                            <button id="s3l" type="button" class="btn btn-sm btn-danger">
+                                <i class="fas fa-caret-left"></i>
+                            </button>
+                            <button id="s3r" type="button" class="btn btn-sm btn-primary">
+                                <i class="fas fa-caret-right"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td style="width: 8vh; transform: none" class="bg-dark text-warning">3</td>
+                    <td class="click" id="3/0"></td>
+                    <td class="click" id="3/1"></td>
+                    <td class="click" id="3/2"></td>
+                    <td class="click" id="3/3"></td>
+                    <td class="click" id="3/4"></td>
+                    <td class="click" id="3/5"></td>
+                    <td class="click" id="3/6"></td>
+                    <td class="click" id="3/7"></td>
+                    <td class="click" id="3/8"></td>
+                    <td class="click" id="3/9"></td>
+                    <td class="click" id="3/10"></td>
+                    <td class="click" id="3/11"></td>
+                    <td class="click" id="3/12"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="btn-group" style="margin: -20px; margin-top: -25px;" role="group">
+                            <button id="s4l" type="button" class="btn btn-sm btn-danger">
+                                <i class="fas fa-caret-left"></i>
+                            </button>
+                            <button id="s4r" type="button" class="btn btn-sm btn-primary">
+                                <i class="fas fa-caret-right"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td style="width: 8vh; transform: none" class="bg-dark text-warning">4</td>
+                    <td class="click" id="4/0"></td>
+                    <td class="click" id="4/1"></td>
+                    <td class="click" id="4/2"></td>
+                    <td class="click" id="4/3"></td>
+                    <td class="click" id="4/4"></td>
+                    <td class="click" id="4/5"></td>
+                    <td class="click" id="4/6"></td>
+                    <td class="click" id="4/7"></td>
+                    <td class="click" id="4/8"></td>
+                    <td class="click" id="4/9"></td>
+                    <td class="click" id="4/10"></td>
+                    <td class="click" id="4/11"></td>
+                    <td class="click" id="4/12"></td>
+                </tr>
+                <tr id="str5">
+                    <td>
+                        <div class="btn-group" style="margin: -20px; margin-top: -25px;" role="group">
+                            <button id="s5l" type="button" class="btn btn-sm btn-danger">
+                                <i class="fas fa-caret-left"></i>
+                            </button>
+                            <button id="s5r" type="button" class="btn btn-sm btn-primary">
+                                <i class="fas fa-caret-right"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td style="width: 8vh; transform: none" class="bg-dark text-warning">5</td>
+                    <td class="click" id="5/0"></td>
+                    <td class="click" id="5/1"></td>
+                    <td class="click" id="5/2"></td>
+                    <td class="click" id="5/3"></td>
+                    <td class="click" id="5/4"></td>
+                    <td class="click" id="5/5"></td>
+                    <td class="click" id="5/6"></td>
+                    <td class="click" id="5/7"></td>
+                    <td class="click" id="5/8"></td>
+                    <td class="click" id="5/9"></td>
+                    <td class="click" id="5/10"></td>
+                    <td class="click" id="5/11"></td>
+                    <td class="click" id="5/12"></td>
+                </tr>
+                <tr id="str6">
+                    <td>
+                        <div class="btn-group" style="margin: -20px; margin-top: -25px;" role="group">
+                            <button id="s6l" type="button" class="btn btn-sm btn-danger">
+                                <i class="fas fa-caret-left"></i>
+                            </button>
+                            <button id="s6r" type="button" class="btn btn-sm btn-primary">
+                                <i class="fas fa-caret-right"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td style="width: 8vh; transform: none" class="bg-dark text-warning">6</td>
+                    <td class="click" id="6/0"></td>
+                    <td class="click" id="6/1"></td>
+                    <td class="click" id="6/2"></td>
+                    <td class="click" id="6/3"></td>
+                    <td class="click" id="6/4"></td>
+                    <td class="click" id="6/5"></td>
+                    <td class="click" id="6/6"></td>
+                    <td class="click" id="6/7"></td>
+                    <td class="click" id="6/8"></td>
+                    <td class="click" id="6/9"></td>
+                    <td class="click" id="6/10"></td>
+                    <td class="click" id="6/11"></td>
+                    <td class="click" id="6/12"></td>
+                </tr>
+
+                <tr id="str7">
+                    <td>
+                        <div class="btn-group" style="margin: -20px; margin-top: -25px;" role="group">
+                            <button id="s7l" type="button" class="btn btn-sm btn-danger">
+                                <i class="fas fa-caret-left"></i>
+                            </button>
+                            <button id="s7r" type="button" class="btn btn-sm btn-primary">
+                                <i class="fas fa-caret-right"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td style="width: 8vh; transform: none" class="bg-dark text-warning">7</td>
+                    <td class="click" id="7/0"></td>
+                    <td class="click" id="7/1"></td>
+                    <td class="click" id="7/2"></td>
+                    <td class="click" id="7/3"></td>
+                    <td class="click" id="7/4"></td>
+                    <td class="click" id="7/5"></td>
+                    <td class="click" id="7/6"></td>
+                    <td class="click" id="7/7"></td>
+                    <td class="click" id="7/8"></td>
+                    <td class="click" id="7/9"></td>
+                    <td class="click" id="7/10"></td>
+                    <td class="click" id="7/11"></td>
+                    <td class="click" id="7/12"></td>
+                </tr>
+                <tr id="str8">
+                    <td>
+                        <div class="btn-group" style="margin: -20px; margin-top: -25px;" role="group">
+                            <button id="s8l" type="button" class="btn btn-sm btn-danger">
+                                <i class="fas fa-caret-left"></i>
+                            </button>
+                            <button id="s8r" type="button" class="btn btn-sm btn-primary">
+                                <i class="fas fa-caret-right"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td style="width: 8vh; transform: none" class="bg-dark text-warning">8</td>
+                    <td class="click" id="8/0"></td>
+                    <td class="click" id="8/1"></td>
+                    <td class="click" id="8/2"></td>
+                    <td class="click" id="8/3"></td>
+                    <td class="click" id="8/4"></td>
+                    <td class="click" id="8/5"></td>
+                    <td class="click" id="8/6"></td>
+                    <td class="click" id="8/7"></td>
+                    <td class="click" id="8/8"></td>
+                    <td class="click" id="8/9"></td>
+                    <td class="click" id="8/10"></td>
+                    <td class="click" id="8/11"></td>
+                    <td class="click" id="8/12"></td>
+                </tr>
+            </tbody>
+            <tfoot class="bg-dark text-warning">
+                <th style="transform: none" colspan="2" class="bg-dark text-warning">
+                    <i class="bi bi-music-note-list"></i>
+                </th>
+                <th>0</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="container text-center mb-4" id="modesgroup">
+        <div class="btn-group btn-group-sm " role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="mode" id="all" value="all" autocomplete="off" checked>
+            <label class="btn btn-outline-warning" for="all">All</label>
+
+            <input type="radio" class="btn-check" name="mode" value="ionian" id="ionian" autocomplete="off">
+            <label class="btn btn-outline-warning" for="ionian">Ionian</label>
+
+            <input type="radio" class="btn-check" name="mode" value="dorian" id="dorian" autocomplete="off">
+            <label class="btn btn-outline-warning" for="dorian">Dorian</label>
+
+            <input type="radio" class="btn-check" name="mode" value="phrygian" id="phrygian" autocomplete="off">
+            <label class="btn btn-outline-warning" for="phrygian">Phrygian</label>
+
+            <input type="radio" class="btn-check" name="mode" value="lydian" id="lydian" autocomplete="off">
+            <label class="btn btn-outline-warning" for="lydian">Lydian</label>
+
+            <input type="radio" class="btn-check" name="mode" value="mixolydian" id="mixolydian" autocomplete="off">
+            <label class="btn btn-outline-warning" for="mixolydian">Mixolydian</label>
+
+            <input type="radio" class="btn-check" name="mode" value="aeolian" id="aeolian" autocomplete="off">
+            <label class="btn btn-outline-warning" for="aeolian">Aeolian</label>
+
+            <input type="radio" class="btn-check" name="mode" value="locrian" id="locrian" autocomplete="off">
+            <label class="btn btn-outline-warning" for="locrian">Locrian</label>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <form action="/" method="post">
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Custom Color</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="text-center">Notes Color</h4>
+                        <div class="bg-gradient p-2 pb-0 rounded">
+                            <table
+                                class="table table-sm table-bordered table-striped table-hover table-success text-center">
+                                <thead>
+                                    <th>Note</th>
+                                    <th>Color</th>
+                                    <th>Color code</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h3><b>E</b></h3>
+                                        </td>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker1" value="{{getcolorcode[0]}}" title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput1" class="form-control text-center"
+                                                required value="{{getcolorcode[0]}}" id="colorinput1">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3><b>F</b></h3>
+                                        </td>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker2" value="{{getcolorcode[1]}}" title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput2" class="form-control text-center"
+                                                required value="{{getcolorcode[1]}}" id="colorinput2">
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3><b>F#/G♭</b></h3>
+                                        </td>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker3" value="{{getcolorcode[2]}}" title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput3" class="form-control text-center"
+                                                required value="{{getcolorcode[2]}}" id="colorinput3">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3><b>G</b></h3>
+                                        </td>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker4" value="{{getcolorcode[3]}}" title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput4" class="form-control text-center"
+                                                required value="{{getcolorcode[3]}}" id="colorinput4">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3><b>G#/A♭</b></h3>
+                                        </td>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker5" value="{{getcolorcode[4]}}" title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput5" class="form-control text-center"
+                                                required value="{{getcolorcode[4]}}" id="colorinput5">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3><b>A</b></h3>
+                                        </td>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker6" value="{{getcolorcode[5]}}" title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput6" class="form-control text-center"
+                                                required value="{{getcolorcode[5]}}" id="colorinput6">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3><b>A#/B♭</b></h3>
+                                        </td>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker7" value="{{getcolorcode[6]}}" title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput7" class="form-control text-center"
+                                                required value="{{getcolorcode[6]}}" id="colorinput7">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3><b>B</b></h3>
+                                        </td>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker8" value="{{getcolorcode[7]}}" title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput8" class="form-control text-center"
+                                                required value="{{getcolorcode[7]}}" id="colorinput8">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3><b>C</b></h3>
+                                        </td>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker9" value="{{getcolorcode[8]}}" title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput9" class="form-control text-center"
+                                                required value="{{getcolorcode[8]}}" id="colorinput9">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3><b>C#/D♭</b></h3>
+                                        </td>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker10" value="{{getcolorcode[9]}}"
+                                                title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput10" class="form-control text-center"
+                                                required value="{{getcolorcode[9]}}" id="colorinput10">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3><b>D</b></h3>
+                                        </td>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker11" value="{{getcolorcode[10]}}"
+                                                title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput11" class="form-control text-center"
+                                                required value="{{getcolorcode[10]}}" id="colorinput11">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3><b>D#/E♭</b></h3>
+                                        </td>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker12" value="{{getcolorcode[11]}}"
+                                                title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput12" class="form-control text-center"
+                                                required value="{{getcolorcode[11]}}" id="colorinput12">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr>
+                        <h4 class="text-center">Mode Color</h4>
+                        <div class="bg-gradient p-2 rounded">
+                            <table
+                                class="table table-sm table-bordered table-striped table-hover table-success text-center">
+                                <thead>
+                                    <th>Color</th>
+                                    <th>Color code</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="color" class="form-control form-control-color mx-auto"
+                                                id="colorpicker13" value="{{getcolorcode[12]}}"
+                                                title="Choose your color">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="colorinput13" class="form-control text-center"
+                                                required value="{{getcolorcode[12]}}" id="colorinput13">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <div>
+                            <a href="/colorreset" class="btn btn-danger ms-auto">Reset</a>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="none p-5 text-center">
+    <h1>Your browser must be above 700px for the site to work properly.</h1>
+</div>
+<script>
+    function colorpicker(colorpickerid, inputid) {
+        var color = document.getElementById(colorpickerid)
+        var input = document.getElementById(inputid)
+        color.valur = input.value;
+        color.oninput = function () {
+            input.value = this.value
+        }
+        input.oninput = function () {
+            color.value = this.value
+        }
+    }
+    colorpicker("colorpicker1", "colorinput1")
+    colorpicker("colorpicker2", "colorinput2")
+    colorpicker("colorpicker3", "colorinput3")
+    colorpicker("colorpicker4", "colorinput4")
+    colorpicker("colorpicker5", "colorinput5")
+    colorpicker("colorpicker6", "colorinput6")
+    colorpicker("colorpicker7", "colorinput7")
+    colorpicker("colorpicker8", "colorinput8")
+    colorpicker("colorpicker9", "colorinput9")
+    colorpicker("colorpicker10", "colorinput10")
+    colorpicker("colorpicker11", "colorinput11")
+    colorpicker("colorpicker12", "colorinput12")
+    colorpicker("colorpicker13", "colorinput13")
+
+    var range = document.getElementById("myRange");
+    range.oninput = function () {
+        console.log(range.value)
+        document.getElementById("table").style.width = `${range.value}px`
+    }
+
+    document.getElementById("myRange").max = `${window.innerWidth - 100}`
+    document.getElementById("myRange").value = `${window.innerWidth - 100}`
+    $(document).ready(function () {
+        $(window).resize(function () {
+            document.getElementById("myRange").max = `${window.innerWidth - 100}`
+            document.getElementById("myRange").value = `${window.innerWidth}`
+            if (window.innerWidth < 1050) {
+                document.getElementById("table").style.width = `${window.innerWidth - 10}px`
+            }
+            else {
+                document.getElementById("table").style.width = `${window.innerWidth - 100}px`
+            }
+        });
+    });
+
+    document.getElementById("str7").style.display = "none"
+    document.getElementById("str8").style.display = "none"
+    var stringcount = 6
+    function addstring() {
+        switch (stringcount) {
+            case 4:
+                document.getElementById("str5").style.display = ""
+                stringcount = stringcount + 1
+                break
+            case 5:
+                document.getElementById("str6").style.display = ""
+                stringcount = stringcount + 1
+                break
+            case 6:
+                document.getElementById("str7").style.display = ""
+                stringcount = stringcount + 1
+                break
+            case 7:
+                document.getElementById("str8").style.display = ""
+                stringcount = stringcount + 1
+                break
+        }
+    }
+    function removestring() {
+        switch (stringcount) {
+            case 8:
+                document.getElementById("str8").style.display = "none"
+                stringcount = stringcount - 1
+                break
+            case 7:
+                document.getElementById("str7").style.display = "none"
+                stringcount = stringcount - 1
+                break
+            case 6:
+                document.getElementById("str6").style.display = "none"
+                stringcount = stringcount - 1
+                break
+            case 5:
+                document.getElementById("str5").style.display = "none"
+                stringcount = stringcount - 1
+                break
+        }
+    }
+</script>
+{% endblock body %}
