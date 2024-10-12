@@ -2,4 +2,4 @@
 <p>The website shows you how to walk on the guitar fretboard.</p>
 
 ![project](https://user-images.githubusercontent.com/74737994/181206881-256afb79-4f4a-48c4-990b-5a948c7443a2.png)
-<a href="https://downpicking.apphub.repl.co/" target="_blank">**See it live**</a>
+<a href="https://downpicking.enes.run" target="_blank">**See it live**</a>
